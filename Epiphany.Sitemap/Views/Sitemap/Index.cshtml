@@ -1,28 +1,29 @@
 ﻿@model Epiphany.Sitemap.Models.Sitemap
-
 @{
+    Layout = null;
     Response.ContentType = "text/xml";
-    ViewBag.Title = "Index";
 }
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-@*<h2>@ViewBag.Title</h2>
+    @foreach (var sitemapEntry in Model.Entries)
+    {
+        <url>
+            <loc>@sitemapEntry.Loc</loc>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NodeId)
-        </th>
-        <th></th>
-    </tr>
+            @if (sitemapEntry.LastMod != null)
+            {
+                <lastmod>@sitemapEntry.LastMod</lastmod>
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+            @if (!sitemapEntry.ChangeFreq.IsEmpty())
+            {
+                <changefreq>monthly</changefreq>
+            }
 
-</table>*@
+            @if (sitemapEntry.Priority != null)
+            {
+                <priority>1.0</priority>
+            }
+        </url>
+    }
+</urlset>
