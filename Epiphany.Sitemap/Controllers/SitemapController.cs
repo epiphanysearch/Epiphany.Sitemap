@@ -31,10 +31,10 @@
         }
 
         // GET: Sitemap
-        public ActionResult Index()
+        public ViewResult Index()
         {
             var sitemapEntries = GetSitemap();
-            return View(sitemapEntries);
+            return View("Index", sitemapEntries);
         }
 
         
