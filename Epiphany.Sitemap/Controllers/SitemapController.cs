@@ -6,8 +6,9 @@
     using System.Web;
     using System.Web.Mvc;
     using Models;
+    using Umbraco.Web.Mvc;
 
-    public class SitemapController : Controller
+    public abstract class SitemapController : RenderMvcController
     {
 
         [NonAction]
