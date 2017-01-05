@@ -10,12 +10,13 @@
     {
         public override ActionResult Index(RenderModel model)
         {
-            return View("Sitemap", model);
+            var newModel = GetSitemap();
+
+            return View("Sitemap", newModel);
         }
 
         #region TestData
 
-        [NonAction]
         public Sitemap GetSitemap()
         {
             return new Sitemap(1)
