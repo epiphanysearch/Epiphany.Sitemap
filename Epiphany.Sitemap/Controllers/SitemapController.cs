@@ -1,18 +1,15 @@
 ﻿namespace Epiphany.Sitemap.Controllers
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
     using Models;
     using Umbraco.Web.Models;
+    using Umbraco.Web.Mvc;
 
-    public class SitemapController : Umbraco.Web.Mvc.RenderMvcController
+    public class SitemapController : RenderMvcController
     {
         public override ActionResult Index(RenderModel model)
         {
-            //return base.Index(model);
             return View("Sitemap", model);
         }
 
@@ -29,16 +26,14 @@
                     {
                         Loc = "https://www.example.com"
                     },
-
                     new SitemapEntry
                     {
-                       Loc = "https://www.example.com/contact"
+                        Loc = "https://www.example.com/contact"
                     }
                 }
             };
         }
 
         #endregion
-
     }
 }
