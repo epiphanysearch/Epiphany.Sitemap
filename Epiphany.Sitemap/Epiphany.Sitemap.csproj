@@ -339,6 +339,7 @@
     <Compile Include="Models\Sitemap.cs" />
     <Compile Include="Models\SitemapEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SitemapApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
