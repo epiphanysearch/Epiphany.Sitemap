@@ -6,10 +6,17 @@
     using System.Web;
     using System.Web.Mvc;
     using Models;
-    using Umbraco.Web.Mvc;
+    using Umbraco.Web.Models;
 
-    public abstract class SitemapController : RenderMvcController
+    public class SitemapController : Umbraco.Web.Mvc.RenderMvcController
     {
+        public override ActionResult Index(RenderModel model)
+        {
+            //return base.Index(model);
+            return View("Sitemap", model);
+        }
+
+        #region TestData
 
         [NonAction]
         public Sitemap GetSitemap()
@@ -31,13 +38,7 @@
             };
         }
 
-        // GET: Sitemap
-        public ViewResult Index()
-        {
-            var sitemapEntries = GetSitemap();
-            return View("Index", sitemapEntries);
-        }
+        #endregion
 
-        
     }
 }

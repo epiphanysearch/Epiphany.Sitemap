@@ -15,7 +15,6 @@ namespace Test.Site
 
             routes.MapRoute(
                 name: "Default",
-                namespaces: new[] {"SitemapController"},
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
