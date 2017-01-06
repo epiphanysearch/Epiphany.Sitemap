@@ -6,7 +6,6 @@ namespace Epiphany.Sitemap
 {
     using System;
     using System.Web;
-    using System.Web.Mvc;
     using Umbraco.Web;
 
     public class SitemapApplication : UmbracoApplication
@@ -22,11 +21,9 @@ namespace Epiphany.Sitemap
         protected override void OnApplicationStarted(object sender, EventArgs e)
         {
             base.OnApplicationStarted(sender, e);
-
-            ViewEngines.Engines.Add(new SitemapViewEngine());
         }
 
-        void application_PreRequestHandlerExecute(object sender, EventArgs e)
+        private void application_PreRequestHandlerExecute(object sender, EventArgs e)
         {
             try
             {
@@ -41,7 +38,7 @@ namespace Epiphany.Sitemap
             }
         }
 
-        void Application_BeginRequest(object sender, EventArgs e)
+        private void Application_BeginRequest(object sender, EventArgs e)
         {
             try
             {
@@ -52,7 +49,7 @@ namespace Epiphany.Sitemap
             }
         }
 
-        void Application_EndRequest(object sender, EventArgs e)
+        private void Application_EndRequest(object sender, EventArgs e)
         {
         }
 
