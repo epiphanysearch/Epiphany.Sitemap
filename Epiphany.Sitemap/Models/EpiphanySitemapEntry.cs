@@ -6,7 +6,7 @@
     using System.Linq;
     using System.Web;
 
-    public class SitemapEntry
+    public class EpiphanySitemapEntry
     {
         /// <summary>
         ///     URL of the page. This URL must begin with the protocol (such as http) and end with a trailing slash, if your web
@@ -41,7 +41,7 @@
         ///     that, and they may crawl pages marked "yearly" more frequently than that. Crawlers may periodically crawl pages
         ///     marked "never" so that they can handle unexpected changes to those pages.
         /// </summary>
-        public string ChangeFreq { get; set; } 
+        public string ChangeFreq { get; set; }
 
         /// <summary>
         ///     The priority of this URL relative to other URLs on your site. Valid values range from 0.0 to 1.0. This value does

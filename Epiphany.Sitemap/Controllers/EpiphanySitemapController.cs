@@ -3,31 +3,32 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
     using Models;
+    using Umbraco.Core.Models;
     using Umbraco.Web.Models;
     using Umbraco.Web.Mvc;
 
-    public class SitemapController : RenderMvcController
+    public class EpiphanySitemapController : RenderMvcController
     {
         public override ActionResult Index(RenderModel model)
         {
-            var newModel = GetSitemap();
+            var newModel = GetSitemap(model.Content);
 
-            return View("Sitemap", newModel);
+            return CurrentTemplate(newModel);
         }
 
         #region TestData
 
-        public Sitemap GetSitemap()
+        public EpiphanySitemap GetSitemap(IPublishedContent content)
         {
-            return new Sitemap(1)
+            return new EpiphanySitemap(content)
             {
-                Entries = new List<SitemapEntry>
+                Entries = new List<EpiphanySitemapEntry>
                 {
-                    new SitemapEntry
+                    new EpiphanySitemapEntry
                     {
                         Loc = "https://www.example.com"
                     },
-                    new SitemapEntry
+                    new EpiphanySitemapEntry
                     {
                         Loc = "https://www.example.com/contact"
                     }

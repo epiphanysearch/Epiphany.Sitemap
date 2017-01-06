@@ -6,20 +6,21 @@
     using System.Linq;
     using System.Web;
     using Umbraco.Core.Models;
+    using Umbraco.Web.Models;
 
-    public class Sitemap : IEnumerable<SitemapEntry>
+    public class EpiphanySitemap : RenderModel, IEnumerable<EpiphanySitemapEntry>
     {
-        public Sitemap(int nodeId)
+
+        public EpiphanySitemap(IPublishedContent content) : base(content)
         {
-            NodeId = nodeId;
         }
 
         public int NodeId { get; private set; }
 
 
-        public List<SitemapEntry> Entries { get; set; }
+        public List<EpiphanySitemapEntry> Entries { get; set; }
 
-        public IEnumerator<SitemapEntry> GetEnumerator()
+        public IEnumerator<EpiphanySitemapEntry> GetEnumerator()
         {
             return Entries.GetEnumerator();
         }
